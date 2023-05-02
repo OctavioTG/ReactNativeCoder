@@ -1,6 +1,7 @@
 import { Button, FlatList, StyleSheet, Text, TextInput, View } from "react-native";
 import { useState } from "react";
-import Modal from "./src/components/modal";
+import Modal from "./src/components/Modal";
+
 
 export default function App() {
   const [textItem, setTextItem] = useState("");
@@ -31,12 +32,12 @@ export default function App() {
     setModalVisible(false)
   }
 
-  function renderItem({ item }) {
+  const renderItem = ({ item }) => (
     <View style={styles.renderItemStyle}>
       <Text>{item.name}</Text>
       <Button title="X" onPress={() => onHandleModal(item)} color={"red"} />
     </View>
-  }
+  );
 
   return (
     <View style={styles.container}>
@@ -49,7 +50,7 @@ export default function App() {
             onChangeText={changeText}
             value={textItem}
           />
-          <Button title="Agregar" onPress={addItem} />
+          <Button title="Agregar" onPress={() => addItem()} />
         </View>
       </View>
       <View style={styles.listContainer}>

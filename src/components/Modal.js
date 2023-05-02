@@ -7,14 +7,14 @@ import {
 } from "react-native";
 import React from "react";
 
-const Modal = ({ isVisible, deleteItem, itemSelec }) => {
+const Modal = ({ isVisible, actionDeleteItem, itemSelec }) => {
   return (
     <NewModal visible={isVisible} animationType="fade" transparent={true}>
       <View style={styles.modalContainer}>
         <View>
-          <Text>Desea Borrar este item?</Text>
+          <Text>Desea eliminar este item?</Text>
           <Text style={styles.modalTextStyle}>{itemSelec.name}</Text>
-          <Button title="Eliminar" color={"red"} onPress={() => deleteItem()} />
+          <Button title="Eliminar" color={"red"} onPress={() => actionDeleteItem()} />
         </View>
       </View>
     </NewModal>
